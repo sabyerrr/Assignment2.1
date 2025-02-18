@@ -1,71 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Register</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register & Login</title>
     <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <div class="register-box">
-        <div class="register-header">Register</div>
-        <form>
-            <div class="row">
-                <div class="col-md-6">
-                    <input type="text" class="form-control mb-2" placeholder="First Name">
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control mb-2" placeholder="Last Name">
-                </div>
-            </div>
-            <input type="text" class="form-control mb-2" placeholder="Username">
-            <input type="email" class="form-control mb-2" placeholder="Your E-Mail Address">
-            <input type="text" class="form-control mb-2" placeholder="Phone Number">
-            <div class="row">
-                <div class="col-md-6">
-                    <select class="form-control mb-2">
-                        <option>Gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control mb-2" placeholder="Date Of Birth: DD/MM/YY">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <select class="form-control mb-2">
-                        <option>Country</option>
-                        <option>USA</option>
-                        <option>UK</option>
-                        <option>India</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control mb-2" placeholder="Your Company's Name">
-                </div>
-            </div>
-            <textarea class="form-control mb-2" placeholder="Home Address"></textarea>
-            <textarea class="form-control mb-2" placeholder="Office Address"></textarea>
-            <input type="password" class="form-control mb-2" placeholder="Password">
-            <input type="password" class="form-control mb-2" placeholder="Confirm Password">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">I agree with the terms & conditions.</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Receive best offers and updates.</label>
-            </div>
-            <button class="btn btn-primary btn-block mt-3">Register</button>
-            <p class="text-center mt-2">Already have an account? <a href="#">Login</a></p>
-        </form>
-    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Site!</h1>
+        <p>Choose an option below to get started:</p>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+        <!-- Button Container (Fixed Issue) -->
+        <div id="buttonContainer">
+            <button class="button" onclick="toggleRegisterForm()">Register</button>
+            <button class="button button-login" onclick="toggleLoginForm()">Log In</button>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="register-container" id="registerForm">
+            <div class="register-box">
+                <button class="close-btn" onclick="closeForms()">X</button> <!-- Close button -->
+                <h2 class="register-header">Register</h2>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Username" required>
+                        <input type="text" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your E-Mail Address" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="" disabled selected>Gender</option> <!-- Fixed issue -->
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                        <input type="text" placeholder="Date Of Birth : DD/MM/YYYY" required> <!-- Fixed format -->
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="" disabled selected>Country</option> <!-- Fixed issue -->
+                            <option>USA</option>
+                            <option>UK</option>
+                            <option>India</option>
+                        </select>
+                        <input type="text" placeholder="Your Company's Name">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Home Address" required></textarea>
+                        <textarea placeholder="Office Address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" required> I agree with the terms & conditions.<br>
+                        <input type="checkbox"> Receive best offers and updates.
+                    </div>
+                    <button type="submit" class="register-btn">Register</button>
+                </form>
+                <p class="login-link">Already have an account? <a href="#" onclick="toggleLoginForm()">Login</a></p>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div class="login-container" id="loginForm">
+            <div class="login-box">
+                <button class="close-btn" onclick="closeForms()">X</button> <!-- Close button -->
+                <h2 class="login-header">Log In</h2>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Username or Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="login-btn">Log In</button>
+                </form>
+                <p class="register-link">Don't have an account? <a href="#" onclick="toggleRegisterForm()">Register</a></p>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
